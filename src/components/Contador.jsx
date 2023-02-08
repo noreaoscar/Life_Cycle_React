@@ -9,7 +9,9 @@ class Contador extends React.Component{
             count:0,
             text: "",
             mode: true,
-           textAligne: true 
+            textLeft: false,
+            textCenter: true,
+            textRight: false,
             
         } 
         
@@ -48,21 +50,43 @@ subtract= ()=>{
 
 leftText=()=>{
     this.setState({
-        textAligne: true
+        textLeft: true,
+           textCenter: false,
+           textRight: false,
     })
 }
 
 rightText=()=>{
     this.setState({
-        textAligne: false
+        textLeft: false,
+           textCenter: false,
+           textRight: true,
+    })
+}
+
+centerText=()=>{
+    this.setState({
+        textLeft: false,
+           textCenter: true,
+           textRight: false,
     })
 }
 
 
+
+
 componentDidMount(){
-    console.log();
+    console.log("Soy el componente me monté");
 }
 
+
+componentDidUpdate(){
+    console.log("Soy el componente, me actualicé");
+}
+
+componentWillUnmount(){
+    console.log("Me estoy desmontando");
+}
 
     render(){
         return (
@@ -87,14 +111,15 @@ componentDidMount(){
                 </label>
 
 
-                <div>
-                    <button onClick={this.leftText} className={styles.leftButtonDark}></button>
-                    <button onClick={this.centerText}>Center</button>
-                    <button onClick={this.rightText} className={styles.rightButtonDark}></button>
+                <div className={styles.textButtonContainer}>
+                    <button onClick={this.leftText} className={`${styles.leftButtonDark} ${styles.textButton} ${styles.buttonsHover}`}></button>
+                    <button onClick={this.centerText} className={`${styles.centerButtonDark} ${styles.textButton} ${styles.buttonsHover}`}></button>
+                    <button onClick={this.rightText} className={`${styles.rightButtonDark} ${styles.textButton} ${styles.buttonsHover}`}></button>
                 </div>
-
+                
                 <div>
-                    <p className={this.state.textAligne ? styles.textLeft : styles.textRight}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel omnis id ullam aliquid obcaecati animi laudantium asperiores, vitae ipsum! Voluptates quisquam consequatur fugiat saepe et mollitia aliquam eum ipsa corrupti!. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate atque ratione rerum. Odio ab, eaque et nobis, nisi voluptatum alias accusantium illo non ipsum facere adipisci. Optio dolorem consequuntur porro.</p>
+                    
+                    <p className={`${this.state.textLeft ? styles.textLeft : ""} ${this.state.textCenter ? styles.textCenter : ""} ${this.state.textRight ? styles.textRight : ""}`}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel omnis id ullam aliquid obcaecati animi laudantium asperiores, vitae ipsum! Voluptates quisquam consequatur fugiat saepe et mollitia aliquam eum ipsa corrupti!. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate atque ratione rerum. Odio ab, eaque et nobis, nisi voluptatum alias accusantium illo non ipsum facere adipisci. Optio dolorem consequuntur porro.</p>
                 </div>
             </>
 
