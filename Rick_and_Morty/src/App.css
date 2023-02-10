@@ -1,5 +1,8 @@
 .App {
   text-align: center;
   padding: "25px";
-  background-image: url();
+  background-image: url("components/img/universe.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
 }

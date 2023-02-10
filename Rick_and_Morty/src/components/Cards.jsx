@@ -1,5 +1,5 @@
 import Card from './Card';
-import style from './Cards.module.css'
+import style from './assets/Cards.module.css'
 
 
 function Cards(props) {

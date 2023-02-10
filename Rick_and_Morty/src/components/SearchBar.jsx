@@ -1,4 +1,4 @@
- import style from "./SearchBar.module.css"
+ import style from "./assets/SearchBar.module.css"
  
  function SearchBar(props) {
    return (
